@@ -82,8 +82,9 @@ mod tests {
     #[test]
     fn filter_escapes_paths_and_adds_vad() {
         let w = FfmpegWhisper {
-            model: PathBuf::from(r"C:\m\ggml-base.bin"),
-            vad: Some(PathBuf::from(r"C:\m\ggml-silero-v5.1.2.bin")),
+            // Forward slashes: on Linux a backslash is part of the file name (CI regression).
+            model: PathBuf::from("C:/m/ggml-base.bin"),
+            vad: Some(PathBuf::from("C:/m/ggml-silero-v5.1.2.bin")),
             language: "auto".into(),
             queue: 20,
             gpu: false,
