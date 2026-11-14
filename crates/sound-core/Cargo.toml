@@ -1,0 +1,18 @@
+[package]
+name = "organon-sound-core"
+description = "Sound perception: speech segments, music spans (tempo, key), sound events and silence as located organon-protocol observations. Pure logic, no I/O policy."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+organon-protocol.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+thiserror = "1"
+rustfft = "6"
+
+[lints]
+workspace = true

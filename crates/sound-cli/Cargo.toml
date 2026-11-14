@@ -1,0 +1,29 @@
+[package]
+name = "organon-sound"
+description = "Hear a sound: speech (whisper via ffmpeg), music (tempo, key), sound events and silence, as organon-protocol observations."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+
+[[bin]]
+name = "organon-sound"
+path = "src/main.rs"
+
+[dependencies]
+organon-sound-core = { path = "../sound-core" }
+organon-protocol.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+anyhow = "1"
+clap = { version = "4", features = ["derive"] }
+tract-onnx = { version = "0.21", optional = true }
+
+[features]
+default = ["yamnet"]
+# Sound-event tagging with YAMNet (ONNX) run by tract, pure Rust.
+yamnet = ["dep:tract-onnx"]
+
+[lints]
+workspace = true

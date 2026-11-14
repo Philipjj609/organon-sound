@@ -1,0 +1,21 @@
+[workspace]
+resolver = "2"
+members = ["crates/sound-core", "crates/sound-cli"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/Philipjj609/organon-sound"
+rust-version = "1.82"
+
+[workspace.dependencies]
+organon-protocol = { git = "https://github.com/Philipjj609/organon-protocol", tag = "v0.1.4" }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[workspace.lints.rust]
+unsafe_code = "forbid"
+
+[workspace.lints.clippy]
+all = { level = "warn", priority = -1 }
